@@ -48,14 +48,27 @@ namespace Libs.Excel
             var worksheets = file.Worksheets;
             dynamic newSheet = worksheets.Add();
             newSheet.Name = sheetName;
-            if (addLast) newSheet.Move(After: file.Sheets[file.Sheets.Count]);
+            if (addLast) newSheet.Move(After: file.Sheets[file.Sheets.Count]); // Chỉ số trong Excel xuất phát từ 1
             if (setActivate) newSheet.Activate();
             return newSheet;
         }
 
+        /// <summary>
+        /// Lấy sheet từ số thứ tự
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="sheetIndex">Chỉ số trong Excel xuất phát từ 1</param>
+        /// <returns></returns>
         public static Worksheet GetSheet(this Workbook file, int sheetIndex)
         {
-            return file.Worksheets[sheetIndex];
+            return file.Worksheets[sheetIndex]; // Chỉ số trong Excel xuất phát từ 1
+        }
+
+        public static Worksheet GetLastSheet(this Workbook file)
+        {
+            int count = file.Worksheets.Count;
+            if (count == 0) return null;
+            return file.Worksheets[count]; // Chỉ số trong Excel xuất phát từ 1
         }
 
         public static void RenameSheet(this Worksheet sheet, string newName)
