@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.36105.23 d17.13
+VisualStudioVersion = 17.13.36105.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libs.Office", "Libs.Office\Libs.Office.csproj", "{83F2D4EE-49AA-45A1-BB6E-4F1D693BC18D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libs.Excel", "Libs.Excel\Libs.Excel.csproj", "{A071D565-E3B0-4744-8E9B-FCE4667E43B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libs.Word", "Libs.Word\Libs.Word.csproj", "{DFC437C5-F93C-4E5B-8BA1-41ACD0BDF96E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{83F2D4EE-49AA-45A1-BB6E-4F1D693BC18D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{83F2D4EE-49AA-45A1-BB6E-4F1D693BC18D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{83F2D4EE-49AA-45A1-BB6E-4F1D693BC18D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{83F2D4EE-49AA-45A1-BB6E-4F1D693BC18D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A071D565-E3B0-4744-8E9B-FCE4667E43B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A071D565-E3B0-4744-8E9B-FCE4667E43B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A071D565-E3B0-4744-8E9B-FCE4667E43B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A071D565-E3B0-4744-8E9B-FCE4667E43B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFC437C5-F93C-4E5B-8BA1-41ACD0BDF96E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFC437C5-F93C-4E5B-8BA1-41ACD0BDF96E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFC437C5-F93C-4E5B-8BA1-41ACD0BDF96E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFC437C5-F93C-4E5B-8BA1-41ACD0BDF96E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

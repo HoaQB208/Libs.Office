@@ -1,7 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using System;
 
-namespace Libs.Office.Utils
+namespace Libs.Excel.Utils
 {
     public class WindowUtils
     {

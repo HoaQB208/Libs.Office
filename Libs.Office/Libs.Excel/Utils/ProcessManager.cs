@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Libs.Office.Utils
+namespace Libs.Excel.Utils
 {
     public class ProcessManager
     {

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Libs.Office")]
+[assembly: AssemblyTitle("Libs.Excel")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Libs.Office")]
+[assembly: AssemblyProduct("Libs.Excel")]
 [assembly: AssemblyCopyright("Copyright ©  2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("83f2d4ee-49aa-45a1-bb6e-4f1d693bc18d")]
+[assembly: Guid("a071d565-e3b0-4744-8e9b-fce4667e43b7")]
 
 // Version information for an assembly consists of the following four values:
 //

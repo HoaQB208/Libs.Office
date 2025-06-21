@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Drawing;
-using Libs.Office.Utils;
+using Libs.Excel.Utils;
 using Microsoft.Office.Interop.Excel;
 using ExcelApp = Microsoft.Office.Interop.Excel.Application;
 using Range = Microsoft.Office.Interop.Excel.Range;
 
-namespace Libs.Office.Excel
+namespace Libs.Excel
 {
     public static class ExcelAPI
     {
