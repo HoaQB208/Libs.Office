@@ -43,13 +43,12 @@ namespace Libs.Excel
             return workbooks.Add(System.Reflection.Missing.Value);
         }
 
-        public static Worksheet AddSheet(this Workbook file, string sheetName, bool addLast = true, bool setActivate = true)
+        public static Worksheet AddSheet(this Workbook file, string sheetName, bool addLast = true)
         {
             var worksheets = file.Worksheets;
             dynamic newSheet = worksheets.Add();
             newSheet.Name = sheetName;
             if (addLast) newSheet.Move(After: file.Sheets[file.Sheets.Count]); // Chỉ số trong Excel xuất phát từ 1
-            if (setActivate) newSheet.Activate();
             return newSheet;
         }
 
@@ -64,6 +63,12 @@ namespace Libs.Excel
             return file.Worksheets[sheetIndex]; // Chỉ số trong Excel xuất phát từ 1
         }
 
+        public static void SetSheetActivate(this Workbook file, int sheetIndex)
+        {
+            Worksheet sheet = file.Worksheets[sheetIndex]; // Chỉ số trong Excel xuất phát từ 1
+            sheet.Activate();
+        }
+
         public static Worksheet GetLastSheet(this Workbook file)
         {
             int count = file.Worksheets.Count;
@@ -74,6 +79,18 @@ namespace Libs.Excel
         public static void RenameSheet(this Worksheet sheet, string newName)
         {
             sheet.Name = newName;
+        }
+
+        public static void SetValue(this Worksheet sheet, int row, int column, object value)
+        {
+            Range range = sheet.Cells[row, column];
+            range.Value = value;
+        }
+
+        public static object GetValue(this Worksheet sheet, int row, int column)
+        {
+            Range range = sheet.Cells[row, column];
+            return range.Value;
         }
 
         public static void SetActivate(this Worksheet sheet)
@@ -135,10 +152,26 @@ namespace Libs.Excel
             range.HorizontalAlignment = align;
         }
 
-        public static void SetFont(this Range range, string fontName = "Arial", double? size = null)
+        public static void SetDecimalNumber(this Range range, int decimalPlaces = 2)
+        {
+            string format = "0." + new string('0', decimalPlaces);
+            range.NumberFormat = format;
+        }
+
+        public static void SetFontSize(this Range range, string fontName = "Arial", double? size = null)
         {
             if (!string.IsNullOrEmpty(fontName)) range.Font.Name = fontName;
             if (size.HasValue) range.Font.Size = size.Value;
+        }
+
+        public static void SetFont(this Range range, string fontName = "Arial")
+        {
+            if (!string.IsNullOrEmpty(fontName)) range.Font.Name = fontName;
+        }
+
+        public static void SetFontSize(this Range range, double size)
+        {
+            range.Font.Size = size;
         }
 
         public static void SetBold(this Range range)
@@ -161,9 +194,19 @@ namespace Libs.Excel
             range.EntireRow.RowHeight = height;
         }
 
+        public static void CopyRowHeight(this Worksheet worksheet, int fromRowIndex, int toRowIndex)
+        {
+            worksheet.Rows[toRowIndex].RowHeight = worksheet.Rows[fromRowIndex].RowHeight;
+        }
+
         public static void SetColumnWidth(this Worksheet worksheet, int columnIndex, double width = 30)
         {
             worksheet.Columns[columnIndex].ColumnWidth = width;
+        }
+
+        public static void CopyColumnWidth(this Worksheet worksheet, int fromColumnIndex, int toColumnIndex)
+        {
+            worksheet.Columns[toColumnIndex].ColumnWidth = worksheet.Columns[fromColumnIndex].ColumnWidth;
         }
 
         public static void AutoFitColumnWidth(this Range range)
