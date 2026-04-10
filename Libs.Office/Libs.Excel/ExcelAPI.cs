@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Runtime.InteropServices.ComTypes;
 using Libs.Excel.Utils;
 using Microsoft.Office.Interop.Excel;
 using ExcelApp = Microsoft.Office.Interop.Excel.Application;
@@ -91,6 +92,32 @@ namespace Libs.Excel
         {
             Range range = sheet.Cells[row, column];
             return range.Value;
+        }
+
+        public static double GetDouble(this Worksheet ws, int rowIndex, int colIndex)
+        {
+            var data = ws.GetValue(rowIndex, colIndex);
+            if (data == null) return 0.0;
+            string strData = data.ToString();
+            if (string.IsNullOrEmpty(strData)) return 0.0;
+            if (double.TryParse(strData, out double numb))
+            {
+                return numb;
+            }
+            return 0;
+        }
+
+        public static DateTime? GetTime(this Worksheet ws, int rowIndex, int colIndex)
+        {
+            var data = ws.GetValue(rowIndex, colIndex);
+            if (data == null) return null;
+            string strData = data.ToString();
+            if (string.IsNullOrEmpty(strData)) return null;
+            if (DateTime.TryParse(strData, out var time))
+            {
+                return time;
+            }
+            return null;
         }
 
         public static void SetActivate(this Worksheet sheet)
